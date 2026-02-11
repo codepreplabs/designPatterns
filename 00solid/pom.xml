@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>solid</artifactId>
+    <artifactId>00solid</artifactId>
 
     <properties>
         <maven.compiler.source>24</maven.compiler.source>

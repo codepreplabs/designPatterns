@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>solid</module>
+        <module>00solid</module>
         <module>01memento-pattern</module>
     </modules>
 
