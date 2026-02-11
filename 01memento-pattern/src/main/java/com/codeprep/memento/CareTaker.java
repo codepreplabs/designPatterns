@@ -16,8 +16,12 @@ public class CareTaker {
     public void undo(TextEditor textEditor) {
         if (!history.isEmpty()) {
             history.pop();
-            textEditor.restore(history.peek());
-            System.out.println("Restored to previous state");
+            if (!history.isEmpty()) {
+                textEditor.restore(history.peek());
+                System.out.println("Restored to previous state");
+            } else {
+                System.out.println("No saved state to restore.");
+            }
         } else {
             System.out.println("No saved state to restore.");
         }
