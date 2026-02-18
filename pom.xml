@@ -13,6 +13,7 @@
         <module>00solid</module>
         <module>01memento-pattern</module>
         <module>02observer-pattern</module>
+        <module>03strategy-pattern</module>
     </modules>
 
     <properties>
