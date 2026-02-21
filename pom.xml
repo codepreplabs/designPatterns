@@ -14,6 +14,7 @@
         <module>01memento-pattern</module>
         <module>02observer-pattern</module>
         <module>03strategy-pattern</module>
+        <module>04command-pattern</module>
     </modules>
 
     <properties>
