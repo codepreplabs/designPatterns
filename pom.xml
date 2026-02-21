@@ -16,6 +16,7 @@
         <module>03strategy-pattern</module>
         <module>04command-pattern</module>
         <module>05templatemethod-pattern</module>
+        <module>06iterator-pattern</module>
     </modules>
 
     <properties>
