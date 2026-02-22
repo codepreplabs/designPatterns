@@ -17,6 +17,7 @@
         <module>04command-pattern</module>
         <module>05templatemethod-pattern</module>
         <module>06iterator-pattern</module>
+        <module>07state-pattern</module>
     </modules>
 
     <properties>
