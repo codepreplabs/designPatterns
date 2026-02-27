@@ -1,38 +1,36 @@
 package com.codeprep;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
-public class ApplicationTest
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public ApplicationTest(String testName )
-    {
-        super( testName );
+import static org.junit.jupiter.api.Assertions.*;
+
+class ApplicationTest {
+
+    @Test
+    void testWindowsFactoryCreatesWindowsButton() {
+        UIFactory factory = new WindowsFactory();
+        Button button = factory.createButton();
+        assertInstanceOf(WindowsButton.class, button);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( ApplicationTest.class );
+    @Test
+    void testWindowsFactoryCreatesWindowsScrollBar() {
+        UIFactory factory = new WindowsFactory();
+        ScrollBar scrollBar = factory.createScrollBar();
+        assertInstanceOf(WindowsScrollBar.class, scrollBar);
     }
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    void testMacFactoryCreatesMacButton() {
+        UIFactory factory = new MacUIFactory();
+        Button button = factory.createButton();
+        assertInstanceOf(MacOSButton.class, button);
+    }
+
+    @Test
+    void testMacFactoryCreatesMacScrollBar() {
+        UIFactory factory = new MacUIFactory();
+        ScrollBar scrollBar = factory.createScrollBar();
+        assertInstanceOf(MacOSScrollBar.class, scrollBar);
     }
 }
