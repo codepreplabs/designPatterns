@@ -1,109 +1,89 @@
 package com.codeprep;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
-public class FactoryPatternDemoTest
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public FactoryPatternDemoTest(String testName )
-    {
-        super( testName );
-    }
+import static org.junit.jupiter.api.Assertions.*;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( FactoryPatternDemoTest.class );
-    }
+class FactoryPatternDemoTest {
 
     // --- Enum-based factory tests ---
 
-    public void testCreateCarWithEnum() {
+    @Test
+    void testCreateCarWithEnum() {
         Transport transport = TransportFactory.createTransport(TransportType.CAR);
         assertNotNull(transport);
-        assertTrue(transport instanceof Car);
+        assertInstanceOf(Car.class, transport);
     }
 
-    public void testCreateBikeWithEnum() {
+    @Test
+    void testCreateBikeWithEnum() {
         Transport transport = TransportFactory.createTransport(TransportType.BIKE);
         assertNotNull(transport);
-        assertTrue(transport instanceof Bike);
+        assertInstanceOf(Bike.class, transport);
     }
 
-    public void testCreateTruckWithEnum() {
+    @Test
+    void testCreateTruckWithEnum() {
         Transport transport = TransportFactory.createTransport(TransportType.TRUCK);
         assertNotNull(transport);
-        assertTrue(transport instanceof Truck);
+        assertInstanceOf(Truck.class, transport);
     }
 
-    public void testNullEnumThrowsException() {
-        try {
-            TransportFactory.createTransport((TransportType) null);
-            fail("Expected IllegalArgumentException for null enum");
-        } catch (IllegalArgumentException e) {
-            assertEquals("Transport type cannot be null", e.getMessage());
-        }
+    @Test
+    void testNullEnumThrowsException() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> TransportFactory.createTransport((TransportType) null));
+        assertEquals("Transport type cannot be null", ex.getMessage());
     }
 
     // --- String-based factory tests ---
 
-    public void testCreateCarWithString() {
+    @Test
+    void testCreateCarWithString() {
         Transport transport = TransportFactory.createTransport("car");
         assertNotNull(transport);
-        assertTrue(transport instanceof Car);
+        assertInstanceOf(Car.class, transport);
     }
 
-    public void testCreateCarWithStringCaseInsensitive() {
+    @Test
+    void testCreateCarWithStringCaseInsensitive() {
         Transport transport = TransportFactory.createTransport("CAR");
         assertNotNull(transport);
-        assertTrue(transport instanceof Car);
+        assertInstanceOf(Car.class, transport);
     }
 
-    public void testCreateBikeWithString() {
+    @Test
+    void testCreateBikeWithString() {
         Transport transport = TransportFactory.createTransport("bike");
         assertNotNull(transport);
-        assertTrue(transport instanceof Bike);
+        assertInstanceOf(Bike.class, transport);
     }
 
-    public void testCreateTruckWithString() {
+    @Test
+    void testCreateTruckWithString() {
         Transport transport = TransportFactory.createTransport("truck");
         assertNotNull(transport);
-        assertTrue(transport instanceof Truck);
+        assertInstanceOf(Truck.class, transport);
     }
 
-    public void testInvalidStringThrowsException() {
-        try {
-            TransportFactory.createTransport("plane");
-            fail("Expected IllegalArgumentException for invalid type");
-        } catch (IllegalArgumentException e) {
-            assertTrue(e.getMessage().contains("Invalid transport type"));
-        }
+    @Test
+    void testInvalidStringThrowsException() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> TransportFactory.createTransport("plane"));
+        assertTrue(ex.getMessage().contains("Invalid transport type"));
     }
 
-    public void testNullStringThrowsException() {
-        try {
-            TransportFactory.createTransport((String) null);
-            fail("Expected IllegalArgumentException for null string");
-        } catch (IllegalArgumentException e) {
-            assertEquals("Transport type cannot be null", e.getMessage());
-        }
+    @Test
+    void testNullStringThrowsException() {
+        IllegalArgumentException ex = assertThrows(IllegalArgumentException.class,
+                () -> TransportFactory.createTransport((String) null));
+        assertEquals("Transport type cannot be null", ex.getMessage());
     }
 
     // --- Each transport produces a distinct instance ---
 
-    public void testFactoryReturnsNewInstanceEachTime() {
+    @Test
+    void testFactoryReturnsNewInstanceEachTime() {
         Transport t1 = TransportFactory.createTransport(TransportType.CAR);
         Transport t2 = TransportFactory.createTransport(TransportType.CAR);
         assertNotSame(t1, t2);
