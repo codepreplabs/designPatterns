@@ -1,20 +1,13 @@
 package com.codeprep;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
 
-public class PrototypeDemoTest extends TestCase {
+import static org.junit.jupiter.api.Assertions.*;
 
-    public PrototypeDemoTest(String testName) {
-        super(testName);
-    }
+class PrototypeDemoTest {
 
-    public static Test suite() {
-        return new TestSuite(PrototypeDemoTest.class);
-    }
-
-    public void testClonedBoardIsIndependentFromOriginal() {
+    @Test
+    void testClonedBoardIsIndependentFromOriginal() {
         GameBoard original = new GameBoard();
         original.addGamePiece(new GamePiece("red", 1));
         original.addGamePiece(new GamePiece("blue", 5));
@@ -30,7 +23,8 @@ public class PrototypeDemoTest extends TestCase {
         assertEquals(5, original.getGamePiece(1).getPosition());
     }
 
-    public void testClonedBoardHasSameInitialValues() {
+    @Test
+    void testClonedBoardHasSameInitialValues() {
         GameBoard original = new GameBoard();
         original.addGamePiece(new GamePiece("red", 1));
         original.addGamePiece(new GamePiece("blue", 5));
@@ -43,7 +37,8 @@ public class PrototypeDemoTest extends TestCase {
         assertEquals(5, clone.getGamePiece(1).getPosition());
     }
 
-    public void testClonedBoardIsNotSameReference() {
+    @Test
+    void testClonedBoardIsNotSameReference() {
         GameBoard original = new GameBoard();
         original.addGamePiece(new GamePiece("red", 1));
 
@@ -53,7 +48,8 @@ public class PrototypeDemoTest extends TestCase {
         assertNotSame(original.getGamePiece(0), clone.getGamePiece(0));
     }
 
-    public void testGamePieceClone() {
+    @Test
+    void testGamePieceClone() {
         GamePiece original = new GamePiece("red", 3);
         GamePiece clone = original.clone();
 
