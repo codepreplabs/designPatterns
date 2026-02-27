@@ -18,6 +18,12 @@
         <module>05templatemethod-pattern</module>
         <module>06iterator-pattern</module>
         <module>07state-pattern</module>
+		<module>09mediator-pattern</module>
+        <module>10singleton-pattern</module>
+        <module>11factory-pattern</module>
+        <module>12abstract-factory-pattern</module>
+        <module>13builder-pattern</module>
+        <module>14prototype-pattern</module>
     </modules>
 
     <properties>
