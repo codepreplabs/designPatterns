@@ -1,38 +1,21 @@
 package com.codeprep;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for simple App.
- */
-public class SingletonDemoTest
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public SingletonDemoTest(String testName )
-    {
-        super( testName );
+import static org.junit.jupiter.api.Assertions.*;
+
+class SingletonDemoTest {
+
+    @Test
+    void testSingletonReturnsSameInstance() {
+        AppSettings instance1 = AppSettings.getInstance();
+        AppSettings instance2 = AppSettings.getInstance();
+        assertSame(instance1, instance2);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( SingletonDemoTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    void testSingletonIsNotNull() {
+        assertNotNull(AppSettings.getInstance());
     }
 }
+
