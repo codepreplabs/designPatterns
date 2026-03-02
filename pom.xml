@@ -24,6 +24,7 @@
         <module>12abstract-factory-pattern</module>
         <module>13builder-pattern</module>
         <module>14prototype-pattern</module>
+        <module>15adapter-pattern</module>
     </modules>
 
     <properties>
@@ -31,7 +32,7 @@
         <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.0</junit.version>
-        <mockito.version>5.5.0</mockito.version>
+        <mockito.version>5.17.0</mockito.version>
     </properties>
 
     <dependencyManagement>
