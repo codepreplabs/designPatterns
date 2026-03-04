@@ -28,6 +28,7 @@
         <module>16decorator-pattern</module>
         <module>17proxy-pattern</module>
         <module>18composite-pattern</module>
+        <module>19facade-pattern</module>
     </modules>
 
     <properties>
