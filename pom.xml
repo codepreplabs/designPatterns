@@ -25,6 +25,8 @@
         <module>13builder-pattern</module>
         <module>14prototype-pattern</module>
         <module>15adapter-pattern</module>
+        <module>16decorator-pattern</module>
+        <module>17proxy-pattern</module>
     </modules>
 
     <properties>
