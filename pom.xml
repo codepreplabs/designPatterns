@@ -27,6 +27,7 @@
         <module>15adapter-pattern</module>
         <module>16decorator-pattern</module>
         <module>17proxy-pattern</module>
+        <module>18composite-pattern</module>
     </modules>
 
     <properties>
